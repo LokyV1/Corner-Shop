@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import it.apulia.ecommerce.cornershop.domain.Acquisto;
 import it.apulia.ecommerce.cornershop.rest.dto.AcquistoDTO;
 import it.apulia.ecommerce.cornershop.rest.dto.AcquistoResponseDTO;
-import it.apulia.ecommerce.cornershop.rest.dto.RuoloDTO;
-import it.apulia.ecommerce.cornershop.rest.dto.RuoloResponseDTO;
 import it.apulia.ecommerce.cornershop.service.AcquistoService;
 import lombok.RequiredArgsConstructor;
 
