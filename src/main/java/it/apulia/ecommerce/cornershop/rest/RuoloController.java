@@ -1,6 +1,8 @@
 package it.apulia.ecommerce.cornershop.rest;
 
 import java.util.List;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,7 @@ public class RuoloController {
 
     private RuoloResponseDTO map(Ruolo ruolo) {
         RuoloResponseDTO responseDTO = new RuoloResponseDTO();
-        responseDTO.setId(ruolo.getId());
-        responseDTO.setNome(ruolo.getNome());
-        responseDTO.setCodice(ruolo.getCodice());
+        BeanUtils.copyProperties(ruolo, responseDTO);
         return responseDTO;
     }
 
@@ -60,5 +60,7 @@ public class RuoloController {
     public void deleteById(@PathVariable String id) throws Exception {
         ruoloService.deleteById(id);
     }
+
+
 
 }
