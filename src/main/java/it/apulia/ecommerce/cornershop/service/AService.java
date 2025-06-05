@@ -1,14 +1,10 @@
 package it.apulia.ecommerce.cornershop.service;
 
-import java.beans.Transient;
 import java.util.List;
 import java.util.Objects;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -23,6 +19,7 @@ public abstract class AService<ID, ENTITY, DTO> {
 
     protected abstract ENTITY map(ENTITY entity, DTO dto);
 
+    @Transactional(rollbackOn = Exception.class)
     public ENTITY save(DTO dto) throws Exception {
         ENTITY entity = map(dto);
         return this.repo.saveAndFlush(entity);
@@ -42,13 +39,13 @@ public abstract class AService<ID, ENTITY, DTO> {
         return this.repo.saveAndFlush(entityUpdated);
     }
 
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional
     public ENTITY getById(ID id) throws Exception {
         return this.repo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(String.format("ID not found: %s", id.toString())));
     }
 
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional
     public List<ENTITY> getAll(Example<ENTITY> criterias) {
         if(Objects.nonNull(criterias)){
             return this.repo.findAll(criterias);
@@ -64,6 +61,4 @@ public abstract class AService<ID, ENTITY, DTO> {
         this.repo.delete(entity);
     }
 
-    
 }
-
