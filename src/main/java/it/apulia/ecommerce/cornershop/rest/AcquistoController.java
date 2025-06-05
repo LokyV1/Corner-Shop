@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import it.apulia.ecommerce.cornershop.domain.Acquisto;
 import it.apulia.ecommerce.cornershop.rest.dto.AcquistoDTO;
 import it.apulia.ecommerce.cornershop.rest.dto.AcquistoResponseDTO;

@@ -5,9 +5,6 @@ import it.apulia.ecommerce.cornershop.domain.Categoria;
 import it.apulia.ecommerce.cornershop.repository.CategoriaRepository;
 import it.apulia.ecommerce.cornershop.rest.dto.CategoriaDTO;
 
-
-
-
 @Service
 public class CategoriaService extends AService<String, Categoria, CategoriaDTO>{
 

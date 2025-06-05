@@ -5,7 +5,6 @@ import it.apulia.ecommerce.cornershop.domain.Acquisto;
 import it.apulia.ecommerce.cornershop.repository.AcquistoRepository;
 import it.apulia.ecommerce.cornershop.rest.dto.AcquistoDTO;
 
-
 @Service
 public class AcquistoService extends AService<String, Acquisto, AcquistoDTO>{
 

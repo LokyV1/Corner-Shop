@@ -5,7 +5,6 @@ import it.apulia.ecommerce.cornershop.repository.ClienteRepository;
 import it.apulia.ecommerce.cornershop.rest.dto.ClienteDTO;
 import it.apulia.ecommerce.cornershop.domain.Cliente;
 
-
 @Service
 public class ClienteService extends AService<String, Cliente, ClienteDTO>{
 
