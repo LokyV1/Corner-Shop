@@ -7,7 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteDTO extends PersonaDTO {
-    private Instant dataInizioAbbonamento;
-    private Instant dataFineAbbonamento;
+public class PersonaDTO {
+    protected String nome;
+    protected String cognome;
+    protected Instant dataNascita;
 }

@@ -5,6 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DipendenteDTO {
+public class DipendenteDTO extends PersonaDTO {
+    private String matricola;
+    private Float salario;
     
+    private String ruoloId;
 }

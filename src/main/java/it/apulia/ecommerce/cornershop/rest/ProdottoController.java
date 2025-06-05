@@ -1,6 +1,9 @@
 package it.apulia.ecommerce.cornershop.rest;
 
+
 import java.util.List;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import it.apulia.ecommerce.cornershop.domain.Prodotto;
+import it.apulia.ecommerce.cornershop.rest.dto.CategoriaResponseDTO;
 import it.apulia.ecommerce.cornershop.rest.dto.ProdottoDTO;
 import it.apulia.ecommerce.cornershop.rest.dto.ProdottoResponseDTO;
 import it.apulia.ecommerce.cornershop.service.ProdottoService;
@@ -25,8 +30,14 @@ public class ProdottoController {
     private final ProdottoService prodottoService;
 
     private ProdottoResponseDTO map(Prodotto prodotto) {
-        // TODO da finire
         ProdottoResponseDTO responseDTO = new ProdottoResponseDTO();
+        BeanUtils.copyProperties(prodotto, responseDTO);
+        
+        responseDTO.setCategorie(prodotto.getCategorie().stream().map(v -> {
+            CategoriaResponseDTO cDTO = new CategoriaResponseDTO();
+            BeanUtils.copyProperties(v, cDTO);
+            return cDTO;
+        }).toList());
         return responseDTO;
     }
 

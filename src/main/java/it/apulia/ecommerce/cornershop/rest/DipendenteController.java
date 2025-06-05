@@ -1,6 +1,8 @@
 package it.apulia.ecommerce.cornershop.rest;
 
 import java.util.List;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import it.apulia.ecommerce.cornershop.domain.Dipendente;
 import it.apulia.ecommerce.cornershop.rest.dto.DipendenteDTO;
 import it.apulia.ecommerce.cornershop.rest.dto.DipendenteResponseDTO;
+import it.apulia.ecommerce.cornershop.rest.dto.RuoloDTO;
 import it.apulia.ecommerce.cornershop.service.DipendenteService;
 import lombok.RequiredArgsConstructor;
 
@@ -25,8 +29,11 @@ public class DipendenteController {
     private final DipendenteService dipendenteService;
 
     private DipendenteResponseDTO map(Dipendente dipendente) {
-        // TODO da finire
         DipendenteResponseDTO responseDTO = new DipendenteResponseDTO();
+        BeanUtils.copyProperties(dipendente, responseDTO);
+        RuoloDTO ruoloDTO = new RuoloDTO();
+        BeanUtils.copyProperties(dipendente.getRuolo(), ruoloDTO);
+        responseDTO.setRuolo(ruoloDTO);
         return responseDTO;
     }
 

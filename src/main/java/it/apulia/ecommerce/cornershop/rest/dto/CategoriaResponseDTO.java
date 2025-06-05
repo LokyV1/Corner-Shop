@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoriaResponseDTO {
-    
+public class CategoriaResponseDTO extends AResponseDTO {
+    private String nome;
 }
