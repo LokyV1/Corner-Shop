@@ -2,7 +2,6 @@ package it.apulia.ecommerce.cornershop.rest.dto;
 
 import java.time.Instant;
 import java.util.Set;
-
 import lombok.Getter;
 import lombok.Setter;
 

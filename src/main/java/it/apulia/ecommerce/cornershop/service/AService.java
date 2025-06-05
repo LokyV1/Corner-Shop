@@ -2,10 +2,8 @@ package it.apulia.ecommerce.cornershop.service;
 
 import java.util.List;
 import java.util.Objects;
-
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
